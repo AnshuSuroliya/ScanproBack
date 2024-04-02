@@ -17,6 +17,6 @@ jobs:
       env:
           DOCKER_TOKEN: ${{ secrets.DOCKERTOKEN }}
       run: |
-        echo ${{ secrets.DOCKERTOKEN }} | docker login ghcr.io -u "anshusuroliya" --password-stdin
+        echo ${{ secrets.DOCKERTOKEN }} | docker login -u "anshusuroliya" --password-stdin
         docker image build -t anshusuroliya/springboot:latest .
         docker push anshusuroliya/springboot:latest
