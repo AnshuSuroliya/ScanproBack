@@ -14,7 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build & Push Image
+      env:
+          DOCKER_TOKEN: ${{ dckr_pat_qqN7OJFMumKXLt22Mi8wkjZxjg8 }}
       run: |
-        echo "${{ dckr_pat_dQhVxACam4byjxzdEY4GM76fPTE }}" | docker login -u "anshusuroliya" --password-stdin
+        echo $DOCKER_TOKEN | docker login -u "anshusuroliya" --password-stdin
         docker image build -t anshusuroliya/springboot:latest .
         docker push anshusuroliya/springboot:latest
